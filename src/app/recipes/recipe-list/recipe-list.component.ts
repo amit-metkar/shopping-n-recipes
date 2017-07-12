@@ -8,8 +8,15 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Recipe[] = [];
-  
+  recipes: Recipe[] = [
+    new Recipe('Biriyani', 'Biriyani is rice with spices and chicken or veg',
+    'http://files.hungryforever.com/wp-content/uploads/2016/03/07154511/mm.jpg'),
+    new Recipe('Biriyani', 'Biriyani is rice with spices and chicken or veg',
+    'http://files.hungryforever.com/wp-content/uploads/2016/03/07154511/mm.jpg'),
+    new Recipe('Biriyani', 'Biriyani is rice with spices and chicken or veg',
+    'http://files.hungryforever.com/wp-content/uploads/2016/03/07154511/mm.jpg')
+  ];
+
   constructor() { }
 
   ngOnInit() {
