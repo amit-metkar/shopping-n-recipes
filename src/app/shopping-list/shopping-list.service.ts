@@ -2,26 +2,26 @@ import { Ingredient } from '../shared/ingredient.model';
 import { EventEmitter } from '@angular/core';
 
 export class ShoppingListService {
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+
+  ingredientsUpdated = new EventEmitter<Ingredient[]>();
+
   private ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10),
+    new Ingredient('Apple', 5),
+    new Ingredient('Tomato', 10)
   ];
 
-  getIngredients() {
+  getIngredient() {
     return this.ingredients.slice();
   }
 
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+  addIngredient(item: Ingredient) {
+    this.ingredients.push(item);
+    this.ingredientsUpdated.emit(this.getIngredient());
   }
-
-  addIngredients(ingredients: Ingredient[]) {
-    // for (let ingredient of ingredients) {
-    //   this.addIngredient(ingredient);
-    // }
-    this.ingredients.push(...ingredients);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+  addIngredients(items: Ingredient[]) {
+    for (let index = 0; index < items.length; index++) {
+      this.addIngredient(items[index]);
+    }
+    this.ingredientsUpdated.emit(this.getIngredient());
   }
 }
