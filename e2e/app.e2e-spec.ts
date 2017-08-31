@@ -1,14 +1,14 @@
-import { ShoppingNRecipesPage } from './app.po';
+import { NewCliPage } from './app.po';
 
-describe('shopping-n-recipes App', () => {
-  let page: ShoppingNRecipesPage;
+describe('new-cli App', () => {
+  let page: NewCliPage;
 
   beforeEach(() => {
-    page = new ShoppingNRecipesPage();
+    page = new NewCliPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });
