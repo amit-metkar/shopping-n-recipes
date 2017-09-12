@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -12,19 +13,16 @@ import { RecipeService } from '../recipe.service';
 export class RecipeListComponent implements OnInit {
 
   recipes: Recipe[] = [];
+  recipeChangedSubscription: Subscription;
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.recipes = this.recipeService.getRecipes();
-    // this.router.navigate(['recipe-start'], {relativeTo: this.route});
+
+    this.recipeChangedSubscription = this.recipeService.recipeChanged.subscribe(
+      (recipes: Recipe[]) => { this.recipes = recipes; }
+    );
   }
 
-  // onRecipeSelection(recipe: Recipe) {
-  //    this.recipeService.recipeSelected.emit(recipe);
-  // }
-
-  // onRecipeSelection(index: number) {
-  //   this.router.navigate(['/recipes', index]);
-  // }
 }

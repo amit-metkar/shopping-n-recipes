@@ -12,22 +12,32 @@ export class ShoppingListService {
     new Ingredient('Tomato', 10)
   ];
 
-  getIngredient() {
+  getIngredients() {
     return this.ingredients.slice();
   }
 
   getIngredientByIndex(index: number) {
-    return this.getIngredient()[index];
+    return this.getIngredients()[index];
+  }
+
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientsUpdated.next(this.getIngredients());
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    this.ingredientsUpdated.next(this.getIngredients());
   }
 
   addIngredient(item: Ingredient) {
     this.ingredients.push(item);
-    this.ingredientsUpdated.next(this.getIngredient());
+    this.ingredientsUpdated.next(this.getIngredients());
   }
   addIngredients(items: Ingredient[]) {
     for (let index = 0; index < items.length; index++) {
       this.addIngredient(items[index]);
     }
-    this.ingredientsUpdated.next(this.getIngredient());
+    this.ingredientsUpdated.next(this.getIngredients());
   }
 }
