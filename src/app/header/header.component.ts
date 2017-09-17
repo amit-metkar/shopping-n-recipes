@@ -1,3 +1,4 @@
+import { Recipe } from '../recipes/recipe.model';
 import { Response } from '@angular/http';
 import { Component } from '@angular/core';
 
@@ -21,6 +22,10 @@ export class HeaderComponent {
   }
 
   onFetchData() {
-    this.dsService.fetchRecipes();
+    this.dsService.fetchRecipes().subscribe(
+      (recipes: Recipe[]) => {
+        this.recipeService.setRecipes(recipes);
+      }
+    );
   }
 }

@@ -15,7 +15,7 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    this.http.get('https://shopping-n-recipe-app.firebaseio.com/recipes.json')
+    return this.http.get('https://shopping-n-recipe-app.firebaseio.com/recipes.json')
     .map(
       (response: Response) => {
         const recipes: Recipe[] = response.json();
@@ -25,11 +25,6 @@ export class DataStorageService {
           }
         }
         return recipes;
-      }
-    )
-    .subscribe(
-      (recipes: Recipe[]) => {
-        this.recipeSerivce.setRecipes(recipes);
       }
     );
   }

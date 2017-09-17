@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Recipe } from '../recipe.model';
@@ -12,13 +12,15 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Recipe[] = [];
+  // recipes: Recipe[] = [];
   recipeChangedSubscription: Subscription;
+
+  @Input() recipes: Recipe[];
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.recipes = this.recipeService.getRecipes();
+    // this.recipes = this.recipeService.getRecipes();
 
     this.recipeChangedSubscription = this.recipeService.recipeChanged.subscribe(
       (recipes: Recipe[]) => { this.recipes = recipes; }
