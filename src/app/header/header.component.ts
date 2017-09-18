@@ -1,3 +1,4 @@
+import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../recipes/recipe.model';
 import { Response } from '@angular/http';
 import { Component } from '@angular/core';
@@ -13,7 +14,9 @@ import { RecipeService } from '../recipes/recipe.service';
 
 export class HeaderComponent {
 
-  constructor(private dsService: DataStorageService, private recipeService: RecipeService) {}
+  constructor(private dsService: DataStorageService,
+    private recipeService: RecipeService,
+    private authService: AuthService) {}
 
   onSaveData() {
     this.dsService.storeRecipes().subscribe(
@@ -27,5 +30,9 @@ export class HeaderComponent {
         this.recipeService.setRecipes(recipes);
       }
     );
+  }
+
+  onLogout() {
+    this.authService.signoutUser();
   }
 }

@@ -19,6 +19,5 @@ export class RecipesResolverService implements Resolve<Recipe[]> {
         return recipes;
       }
     );
-    // return this.recipeService.getRecipes();
   }
 }
