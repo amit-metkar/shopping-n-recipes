@@ -12,16 +12,12 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeListComponent implements OnInit {
 
-  // recipes: Recipe[] = [];
-  recipeChangedSubscription: Subscription;
-
   @Input() recipes: Recipe[];
+  recipeChangedSubscription: Subscription;
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.recipes = this.recipeService.getRecipes();
-
     this.recipeChangedSubscription = this.recipeService.recipeChanged.subscribe(
       (recipes: Recipe[]) => { this.recipes = recipes; }
     );
