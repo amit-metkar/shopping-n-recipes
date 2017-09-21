@@ -9,12 +9,11 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 const recipesRoute: Routes = [
-  { path: 'recipes', component: RecipesComponent, canActivate: [AuthGuardService],
-  resolve: { recipes: RecipesResolverService }, children: [
-    { path: '', component: RecipeStartComponent },
-    { path: 'new', component: RecipeEditComponent},
-    { path: ':index', component: RecipeDetailComponent },
-    { path: ':index/edit', component: RecipeEditComponent }
+  { path: '', component: RecipesComponent, children: [
+      { path: '', component: RecipeStartComponent },
+      { path: 'new', component: RecipeEditComponent},
+      { path: ':index', component: RecipeDetailComponent },
+      { path: ':index/edit', component: RecipeEditComponent }
   ]}
 ];
 
