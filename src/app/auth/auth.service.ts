@@ -41,7 +41,7 @@ export class AuthService {
       (reject) => { console.log(reject); }
     );
     this.token = null;
-    this.router.navigate(['signin']);
+    this.router.navigate(['/']);
   }
 
   getToken() {
@@ -52,7 +52,7 @@ export class AuthService {
       );
       return this.token;
     } else {
-      this.router.navigate(['signin']);
+      this.router.navigate(['auth/signin']);
       return null;
     }
   }

@@ -7,7 +7,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRouterModule } from './app.router.module';
 import { AppComponent } from './app.component';
 import { AuthGuardService } from './auth/auth-guard.service';
-import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
 import { HeaderComponent } from './header/header.component';
 import { RecipeService } from './recipes/recipe.service';
@@ -29,8 +28,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     AppRouterModule,
     HttpModule,
     SharedModule,
-    ShoppingListModule,
-    AuthModule
+    ShoppingListModule
   ],
   providers: [
     ShoppingListService,
