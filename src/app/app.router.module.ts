@@ -20,6 +20,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes)
   ],
+  providers: [AuthGuardService],
   exports: [RouterModule]
 })
 export class AppRouterModule { }
