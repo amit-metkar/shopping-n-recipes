@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './core/home/home.component';
 import { RecipesResolverService } from './recipes/recipes-resolver.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 

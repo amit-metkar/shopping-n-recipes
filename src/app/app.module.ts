@@ -1,4 +1,4 @@
-import { HomeComponent } from './home/home.component';
+import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -8,7 +8,6 @@ import { AppRouterModule } from './app.router.module';
 import { AppComponent } from './app.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
-import { HeaderComponent } from './header/header.component';
 import { RecipeService } from './recipes/recipe.service';
 import { RecipesResolverService } from './recipes/recipes-resolver.service';
 import { DataStorageService } from './shared/services/data-storage.service';
@@ -18,16 +17,15 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRouterModule,
     HttpModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   providers: [
     ShoppingListService,
