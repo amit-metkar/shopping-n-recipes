@@ -13,10 +13,12 @@ import { DataStorageService } from '../../shared/services/data-storage.service';
 })
 
 export class HeaderComponent {
-
+  authService: AuthService;
   constructor(private dsService: DataStorageService,
     private recipeService: RecipeService,
-    private authService: AuthService) {}
+    authService: AuthService) {
+      this.authService = authService;
+    }
 
   onSaveData() {
     this.dsService.storeRecipes().subscribe(
